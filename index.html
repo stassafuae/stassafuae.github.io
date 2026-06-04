@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Stanislav</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style type="text/css">
+:root {
+	--bgnd: #ffffff;
+	--text: #1f1f1f;
+	--soft: #6a6a6a;
+	--code-number: #0550ae;
+	--code-string: #0a3069;
+	--code-keyword: #d73a49;
+	--code-bgnd: #f0f1f2;
+	--pre-bgnd: #f6f8fA;
+	--border: #d0d7de;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+}
+
+body {
+	overflow: hidden;
+	margin: 0;
+	font-family: system-ui, -apple-system, sans-serif;
+	background: var(--bgnd);
+	color: var(--text);
+}
+
+.layout {
+	display: flex;
+	height: 100vh;
+}
+
+.sidebar {
+	width: 220px;
+	padding: 48px 28px;
+}
+
+.divider {
+	width: 1px;
+	height: 95%;
+	margin: auto 0;
+	background: var(--border);
+}
+
+.content {
+	flex: 1;
+	overflow-y: auto;
+}
+
+.article {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 16px;
+}
+
+.name {
+	font-weight: 700;
+	font-size: 20px;
+	margin-bottom: 24px;
+}
+
+.section {
+	margin-bottom: 12px;
+}
+
+.label {
+	font-size: 11px;
+	letter-spacing: .08em;
+	text-transform: uppercase;
+	color: var(--soft);
+	margin-bottom: 20px;
+}
+
+.nav {
+	display: flex;
+	flex-direction: column;
+	font-size: 14px;
+	gap: 10px;
+}
+
+.nav div {
+	color: inherit;
+	cursor: pointer;
+	transition: color 0.2s ease;
+}
+
+.nav div:hover {
+	color: var(--soft);
+}
+
+.nav div.active {
+	font-weight: 700;
+	color: var(--text);
+}
+
+h1, h2, h3 {
+	border-bottom: 1px solid var(--border);
+	padding-bottom: 8px;
+}
+
+p, ul, li, a {
+	font-size: 1.1rem;
+	line-height: 1.75;
+	margin-bottom: 14px;
+	color: var(--soft);
+}
+
+code {
+	background: var(--code-bgnd);
+	padding: 1px;
+	border-radius: 3px;
+}
+
+pre {
+	background: var(--pre-bgnd);
+	padding: 8px;
+	font-size: 0.9rem;
+	color: var(--soft);
+	overflow-x: auto;
+	border-radius: 5px;
+}
+
+pre code {
+	background: none;
+	padding: 0;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+th, td {
+	border: 1px solid var(--border);
+	padding: 8px;
+	text-align: left;
+}
+
+tbody tr:nth-child(even) {
+	background-color: var(--pre-bgnd);
+}
+
+.figure {
+	text-align: center;
+}
+
+.figure figcaption {
+	margin-top: 8px;
+	font-size: 14px;
+	color: var(--soft);
+	font-style: italic;
+}
+
+.code-highlight-number {
+	color: var(--code-number);
+}
+
+.code-highlight-string {
+	color: var(--code-string);
+}
+
+.code-highlight-string .code-highlight-number {
+	color: var(--code-string);
+}
+
+.code-highlight-keyword {
+	color: var(--code-keyword);
+}
+
+@media (max-width: 768px) {
+	html, body {
+		overflow: auto;
+		height: auto;
+		margin: 0;
+	}
+
+	body {
+		-webkit-text-size-adjust: 100%;
+	}
+
+	.layout {
+		display: block;
+		height: auto;
+	}
+
+	.sidebar {
+		width: auto;
+		padding: 20px 20px;
+	}
+
+	.divider {
+		width: 95%;
+		height: 1px;
+		margin: 0 auto;
+		background: var(--border);
+	}
+
+	.content {
+		overflow: visible;
+	}
+
+	.article {
+		max-width: none;
+		padding: 10px 20px;
+	}
+
+	.nav {
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 20px;
+	}
+
+	p, ul, li, a {
+		text-align: justify;
+	}
+}
+</style>
+</head>
+
+<body>
+<div class="layout">
+	<div class="sidebar">
+		<div class="nav">
+			<div class="name" onclick="loadArticle(this, '')">Stanislav</div>
+		</div>
+		<div class="section">
+			<div class="label">Projects</div>
+			<div class="nav">
+				<div onclick="loadArticle(this, 'xonix_for_windows_1_0')">Xonix</div>
+				<div onclick="loadArticle(this, 'keysfn2k')">Fn Keys</div>
+				<div onclick="loadArticle(this, 'atari-portfolio-usb-lpt-transfer')">Atari data transfer</div>
+			</div>
+		</div>
+	</div>
+	<div class="divider"></div>
+	<div class="content">
+		<div class="article" id="article"></div>
+	</div>
+</div>
+<script src="index.js"></script>
+</body>
+
+</html>
